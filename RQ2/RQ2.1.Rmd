@@ -1,0 +1,215 @@
+---
+title: "R scripts for RQ2.1"
+output: html_notebook
+---
+
+
+```{r}
+
+# Manully records when a projects introduced CI 
+
+first_ci_time <- c("2016/01/13 23:51","2014/03/21 11:15","2013/07/06 17:01","2014/06/08 22:29","2015/12/05 00:07","2015/03/10 16:35","2015/10/14 21:59","2013/09/17 14:52","2014/12/18 12:16","2015/05/08 21:02","2012/03/10 23:05","2014/04/07 21:11","2012/07/12 22:15","2013/09/02 21:14","2013/05/23 04:50","2012/05/13 17:16","2015/06/29 20:33","2013/06/19 21:21","2014/01/31 21:33","2013/01/15 14:19","2012/06/08 14:39","2014/09/30 07:43","2013/04/08 19:22","2013/04/10 23:01","2014/10/14 23:26","2013/09/18 22:43","2012/11/14 20:43","2015/09/08 16:04","2012/08/16 23:14","2013/12/26 20:02","2012/08/13 06:51","2013/03/15 05:24","2014/05/19 21:33","2013/11/04 21:31","2013/03/06 17:27","2014/03/25 22:14","2015/03/25 14:15","2016/02/20 11:10","2012/06/25 19:00","2014/08/18 16:09","2012/11/29 18:37","2013/01/03 03:38","2014/05/12 15:29","2014/01/08 21:27","2012/10/18 13:44","2012/09/03 21:11","2013/02/01 18:27","2013/03/20 19:15","2016/02/03 17:26","2014/08/11 12:43","2012/08/29 18:47","2013/06/30 13:47","2013/02/06 11:05","2013/02/01 17:11","2014/09/03 16:34","2015/05/21 21:02","2014/05/23 16:53","2014/04/02 20:50","2015/01/27 02:09","2012/02/17 19:11","2012/07/05 00:58","2012/05/30 16:47","2011/07/22 22:35","2014/08/30 06:11","2012/09/05 22:01","2013/10/24 20:42","2013/05/10 11:12","2015/01/05 02:05","2012/04/13 03:52","2012/10/04 08:25","2012/11/25 18:35","2013/05/31 16:24","2012/04/17 22:36","2016/04/20 11:40","2015/01/05 22:42","2015/11/20 21:16","2014/01/11 10:57","2012/06/21 23:22","2015/01/19 08:07","2012/08/02 20:58","2013/10/15 22:43","2012/04/25 15:17","2014/07/23 04:23","2014/09/02 21:47","2013/01/24 00:09","2012/07/04 18:50","2013/11/09 01:33")
+
+names(first_ci_time) <- c("aframevr_aframe_complete.csv","alohaeditor_Aloha-Editor_complete.csv","AnalyticalGraphicsInc_cesium_complete.csv","androidannotations_androidannotations_complete.csv","andypetrella_spark-notebook_complete.csv","ansible_ansible_complete.csv","apache_incubator-airflow_complete.csv","apereo_cas_complete.csv","appcelerator_titanium_mobile_complete.csv","BabylonJS_Babylon.js_complete.csv","bcit-ci_CodeIgniter_complete.csv","bokeh_bokeh_complete.csv","boto_boto_complete.csv","buildbot_buildbot_complete.csv","bundler_bundler_complete.csv","cakephp_cakephp_complete.csv","callemall_material-ui_complete.csv","chef_chef_complete.csv","craftyjs_Crafty_complete.csv","cython_cython_complete.csv","divio_django-cms_complete.csv","driftyco_ng-cordova_complete.csv","dropwizard_dropwizard_complete.csv","dropwizard_metrics_complete.csv","elastic_kibana_complete.csv","elastic_logstash_complete.csv","ether_etherpad-lite_complete.csv","fchollet_keras_complete.csv","fog_fog_complete.csv","frappe_erpnext_complete.csv","getsentry_sentry_complete.csv","gollum_gollum_complete.csv","grails_grails-core_complete.csv","HabitRPG_habitica_complete.csv","hapijs_hapi_complete.csv","haraka_Haraka_complete.csv","humhub_humhub_complete.csv","invoiceninja_invoiceninja_complete.csv","ipython_ipython_complete.csv","isagalaev_highlight.js_complete.csv","jashkenas_backbone_complete.csv","jashkenas_underscore_complete.csv","jhipster_generator-jhipster_complete.csv","jsbin_jsbin_complete.csv","kivy_kivy_complete.csv","laravel_laravel_complete.csv","Leaflet_Leaflet_complete.csv","loomio_loomio_complete.csv","mantl_mantl_complete.csv","mapbox_mapbox-gl-js_complete.csv","matplotlib_matplotlib_complete.csv","mizzy_serverspec_complete.csv","mozilla_pdf.js_complete.csv","mozilla-b2g_gaia_complete.csv","Netflix_Hystrix_complete.csv","openhab_openhab_complete.csv","owncloud_core_complete.csv","photonstorm_phaser_complete.csv","processing_p5.js_complete.csv","puppetlabs_puppet_complete.csv","Pylons_pyramid_complete.csv","pyrocms_pyrocms_complete.csv","rails_rails_complete.csv","ReactiveX_RxJava_complete.csv","refinery_refinerycms_complete.csv","request_request_complete.csv","robolectric_robolectric_complete.csv","roots_sage_complete.csv","saltstack_salt_complete.csv","scikit-image_scikit-image_complete.csv","scikit-learn_scikit-learn_complete.csv","scipy_scipy_complete.csv","sensu_sensu_complete.csv","serverless_serverless_complete.csv","siacs_Conversations_complete.csv","spinnaker_spinnaker_complete.csv","square_picasso_complete.csv","sympy_sympy_complete.csv","TelescopeJS_Telescope_complete.csv","Theano_Theano_complete.csv","TryGhost_Ghost_complete.csv","twbs_bootstrap_complete.csv","vanilla_vanilla_complete.csv","woocommerce_woocommerce_complete.csv","Yelp_mrjob_complete.csv","yiisoft_yii_complete.csv","zurb_foundation-sites_complete.csv")
+
+```
+
+
+
+```{r}
+library(lmtest)
+library(foreign)
+library(rdd)
+library(xtable)
+library(stargazer)
+library(dplyr)    
+```
+
+
+Applying RDD to merge_delay 
+  output visual results to a pdf file, statistical results to a txt file. 
+
+```{r}
+pdf("./results/rq1_RDD_merge_time.pdf")
+sink(file = "./results/rq1_RDD_merge_time.log")
+
+for (proj in names(first_ci_time)){
+print("**********************************************")
+  
+data_csv <- read.csv(file=paste("./pull_requests_raw_csv/",proj,sep=""),na.strings=c("","NA"))
+cols <- c("created_at", "merge_time", "practice")
+data_csv <- data_csv[cols]
+data_csv <- data_csv[!is.na(data_csv$created_at),]
+data_csv$ci_week = as.integer((as.Date(data_csv$created_at)-as.Date(first_ci_time[[proj]]))/7)
+data_csv$merge_time = abs(data_csv$merge_time)
+
+# remove outliers and merge_time <= 1 
+test_csv <- subset(data_csv, data_csv$merge_time>1)
+test_csv$merge_time <- log(test_csv$merge_time+1)
+#test_csv <- filter(test_csv, merge_time<450.0)
+
+outliers <- boxplot(merge_time~ci_week,data = test_csv, plot=FALSE)$out
+if(length(outliers) != 0){
+  test_csv <- test_csv[-which(test_csv$merge_time %in% outliers),]  
+}
+
+x_range <- max(abs(min(test_csv$ci_week)), max(test_csv$ci_week))
+test_csv <- test_csv[(abs(test_csv$ci_week) <= x_range),]
+test_csv$ci = ifelse(test_csv$practice == "CI", 1 ,0)
+
+
+proj <- sub("_complete.csv", "", proj)
+mod0<-lm(merge_time~ci+ci_week, test_csv)
+mod0.se<-coeftest(mod0,vcovHC(mod0,"HC2"))[,2]
+print("Linear model with same slope")
+print(summary(mod0))
+# stargazer(mod0,se=list(mod0.se),title="Linear model with same slope")
+plot(test_csv$ci_week, test_csv$merge_time, 
+      main=paste(proj, " -- Linear model with same slope", sep = ""),
+      xlab="Forcing variable(Week diff from CI applied)", 
+      ylab="Merge Time")
+curve(mod0$coefficient[1]+mod0$coefficient[2]+mod0$coefficient[3]*x,
+      0, x_range + 1, add=T, lwd=3, col="red")
+curve(mod0$coefficient[1]+mod0$coefficient[3]*x,
+      -(x_range+1), 0, add=T, lwd=3, col="blue")
+
+
+
+mod <- lm(merge_time~ci*ci_week, test_csv)
+mod.se <- coeftest(mod, vcov=vcovHC(mod, "HC2"))[,2]
+print("Linear model with different slopes")
+print(summary(mod))
+# stargazer(mod, se=list(mod.se), title="Linear different slopes")
+plot(test_csv$ci_week, test_csv$merge_time, 
+     main=paste(proj, " -- Linear model with different slopes", sep = ""),
+     xlab="Forcing variable(Week diff from CI applied)", 
+     ylab="Merge Time")
+curve(mod$coefficient[1]+mod$coefficient[2]
+      +mod$coefficient[3]*x+mod$coefficient[4]*x,
+      0, x_range + 1, add=T, lwd=3, col="red")
+curve(mod$coefficient[1]+mod$coefficient[3]*x,
+      -(x_range+1), 0, add=T, lwd=3, col="blue")
+
+
+
+mod1<-lm(merge_time~ci+ci_week+I(ci*ci_week)
+         +I(ci_week^2)+I(ci*(ci_week^2)), test_csv)
+mod1.se<-coeftest(mod1,vcovHC(mod1,"HC2"))[,2]
+print("Quadratic model")
+print(summary(mod1))
+# stargazer(mod1,se=list(mod1.se),title="Quadratic model")
+plot(test_csv$ci_week, test_csv$merge_time, 
+      main=paste(proj, " -- Quadratic model", sep = ""),
+      xlab="Forcing variable(Week diff from CI applied)", 
+      ylab="Merge Time")
+curve(mod1$coefficient[1]+mod1$coefficient[2]
+      +mod1$coefficient[3]*x+mod1$coefficient[4]*x
+      +mod1$coefficient[5]*(x^2)+mod1$coefficient[6]*(x^2),
+      0, 30, add=T, lwd=3, col="red")
+curve(mod1$coefficient[1]+mod1$coefficient[3]*x
+      +mod1$coefficient[5]*(x^2),
+      -20, 0, add=T, lwd=3, col="blue")
+
+
+# Sharp RDD  
+library(rdd)
+tryCatch( {
+  llrmod<-RDestimate(merge_time~ci_week,test_csv)
+  plot(llrmod, main = paste(proj, "Sharp RDD", sep = ""))
+  # stargazer(llrmod,se=list(llrmod.se),title="RDestimate result")
+  print("Sharp RDD")
+  print(summary(llrmod)) }, 
+  error = function(e) {print("the RDD goes wrong..")}
+)
+}
+dev.off()
+closeAllConnections()
+```
+
+
+
+Applying RDD to lifetime 
+  output visual results to a pdf file, statistical results to a txt file. 
+
+```{r}
+
+pdf("./results/rq2_RDD_lifetime.pdf") 
+sink(file = "./results/rq2_RDD_lifetime.log")
+
+for (proj in names(first_ci_time)){
+print("**********************************************")
+print(proj)
+# comparing the lifetime of merged PRs before and after adopting CI 
+  
+test_csv <- read.csv(file=paste("./pull_requests_raw_csv/",proj,sep=""),na.strings=c("","NA"))
+cols <- c("created_at", "merge_time", "delivery_time", "practice")
+test_csv <- test_csv[cols]
+test_csv <- test_csv[!is.na(test_csv$created_at),]
+test_csv$ci_week = as.integer((as.Date(test_csv$created_at)-as.Date(first_ci_time[[proj]]))/7)
+test_csv$merge_time = abs(test_csv$merge_time)
+test_csv$delivery_time = abs(test_csv$delivery_time)
+# remove outliers 
+test_csv <- test_csv[!(test_csv$merge_time>=1000),]
+outliers <- boxplot(merge_time~ci_week,data = test_csv, plot=FALSE, range=1.1)$out
+test_csv <- test_csv[-which(test_csv$merge_time %in% outliers),]
+test_csv <- test_csv[!(test_csv$delivery_time>=1000),]
+outliers <- boxplot(delivery_time~ci_week,data = test_csv, plot=FALSE, range=1.1)$out
+test_csv <- test_csv[-which(test_csv$delivery_time %in% outliers),]
+
+x_range <- max(abs(min(test_csv$ci_week)), max(test_csv$ci_week))
+# x_range <- min(abs(min(test_csv$ci_week)), max(test_csv$ci_week))
+test_csv <- test_csv[(abs(test_csv$ci_week) <= x_range),]
+test_csv$ci = ifelse(test_csv$practice == "CI", 1 ,0)
+
+test_csv$merge_time <- test_csv$merge_time + test_csv$delivery_time 
+
+proj <- sub("_complete.csv", "", proj)
+
+mod <- lm(merge_time~ci*ci_week, test_csv)
+mod.se <- coeftest(mod, vcov=vcovHC(mod, "HC2"))[,2]
+print(summary(mod))
+# stargazer(mod, se=list(mod.se), title="Linear different slopes")
+plot(test_csv$ci_week, test_csv$merge_time, 
+     main=paste(proj, " -- Linear model with different slopes", sep = ""),
+     xlab="Forcing variable(Week diff from CI applied)", 
+     ylab="Delivery Time")
+curve(mod$coefficient[1]+mod$coefficient[2]
+      +mod$coefficient[3]*x+mod$coefficient[4]*x,
+      0, x_range + 1, add=T, lwd=3, col="red")
+curve(mod$coefficient[1]+mod$coefficient[3]*x,
+      -(x_range+1), 0, add=T, lwd=3, col="blue")
+
+
+
+mod1<-lm(merge_time~ci+ci_week+I(ci*ci_week)
+         +I(ci_week^2)+I(ci*(ci_week^2)), test_csv)
+mod1.se<-coeftest(mod1,vcovHC(mod1,"HC2"))[,2]
+print(summary(mod1))
+# stargazer(mod1,se=list(mod1.se),title="Quadratic model")
+plot(test_csv$ci_week, test_csv$merge_time, 
+      main=paste(proj, " -- Quadratic model", sep = ""),
+      xlab="Forcing variable(Week diff from CI applied)", 
+      ylab="Delivery Time")
+curve(mod1$coefficient[1]+mod1$coefficient[2]
+      +mod1$coefficient[3]*x+mod1$coefficient[4]*x
+      +mod1$coefficient[5]*(x^2)+mod1$coefficient[6]*(x^2),
+      0, 30, add=T, lwd=3, col="red")
+curve(mod1$coefficient[1]+mod1$coefficient[3]*x
+      +mod1$coefficient[5]*(x^2),
+      -20, 0, add=T, lwd=3, col="blue")
+
+
+# Sharp RDD  
+library(rdd)
+tryCatch( {
+  llrmod<-RDestimate(merge_time~ci_week,test_csv,se.type="HC2")
+  plot(llrmod, main = paste(proj, "Sharp RDD", sep = ""))
+  print(summary(llrmod)) }, 
+  error = function(e) {print("the RDD goes wrong..")}
+)
+}
+dev.off() 
+closeAllConnections()
+```
+
+

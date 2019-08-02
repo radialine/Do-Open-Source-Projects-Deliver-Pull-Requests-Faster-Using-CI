@@ -1,0 +1,79 @@
+---
+title: "R scripts for RQ2.2"
+output: html_notebook
+---
+
+Fitting linear regression and find the most influential variable to 'delivery delay' for each project. 
+
+```{r}
+library(rms)
+library(e1071)
+cols <- c("merge_workload","contributor_experience","queue_rank","contributor_integration","activities","merge_time","come_in_time", "delivery_time")
+corrs_ext <- c()
+corrs <- c()
+count <- 1
+##################
+# for prs with CI 
+##################
+for(proj in list.files('./pull_requests_csv/', full.names = FALSE)){
+print("")
+print('*******')
+print(proj)
+
+# Step1: load data. 
+meta_data <- read.csv(file=paste("./pull_requests_csv/",proj,sep=""),na.strings=c("","NA"))
+meta_data$comments_interval <-  as.double(meta_data$comments_interval)
+
+# Step2: log transformation
+with_ci <- meta_data[(meta_data$practice=="CI"),]
+with_ci <- with_ci[cols]
+with_ci["delivery_time"] <- log(with_ci$delivery_time + 1)
+with_ci <- na.omit(with_ci)
+
+
+# Step3: variable clustering analysis 
+v <- varclus(~merge_workload+contributor_experience+queue_rank+contributor_integration+activities+merge_time+come_in_time, data = with_ci)
+if (v$sim[7,3] > 0.7){
+  print(v$sim[7,3])
+  print('too strong correlation between come_in_time and queue_rank')
+}
+# plot(v)
+
+
+# Step4: check redundancy 
+redun <- redun(~merge_workload+contributor_experience+queue_rank+contributor_integration+activities+merge_time, data = with_ci, r2 = 0.9, nk=0)
+print("redun check")
+print(redun$rsquared)
+
+
+# Step5: allocate degrees of freedom. 
+s <- spearman2 (delivery_time ~ merge_workload+contributor_experience+queue_rank+contributor_integration+activities+merge_time, data = with_ci)
+# plot (s)
+
+
+# Step6: fit regression model and asses the fit of the model 
+mod_ci <- ols(delivery_time ~ merge_workload+contributor_experience+queue_rank+contributor_integration+activities+merge_time, data = with_ci)
+
+if (summary.lm(mod_ci)$r.squared>=0.5){
+  # print(v$sim[6,13])
+  # count <- count+1
+  print(summary.lm(mod_ci)$r.squared)
+}
+
+# step7: get explanatory power of each variable using Wald test 
+an <- anova(mod_ci, test="Chisq", ss=FALSE)
+most <- max(an[1:6,1])
+for (i in 1:6){
+  if (an[i,1] == most){
+    print(row.names(an)[i])
+    break
+  }
+}
+
+print(skewness(with_ci$queue_rank))
+print(skewness(with_ci$come_in_time))
+}
+```
+
+
+
